@@ -244,4 +244,4 @@ Explain what static binding and dynamic binding is?
 Answer: Binding refers to the process of converting identifiers (such as variable and method names) into addresses.
 Static binding is resolved during compile time. The binding of all static, private and final members are all
 done at compile time. Dynamic binding occurs during run time. Static binding is used for overloading methods, while
-dynamic binding is used for overriding methods..
+dynamic binding is used for overriding methods.
