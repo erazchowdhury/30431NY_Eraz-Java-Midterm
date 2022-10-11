@@ -10,6 +10,7 @@ public class UnitTestingMath {
 
         System.out.println(Factorial.getFactorialRecursion(5));
         System.out.println(Factorial.getFactorialIteration(6));
+        System.out.println(Fibonacci.getFibonacci(10));
 
     }
 }
