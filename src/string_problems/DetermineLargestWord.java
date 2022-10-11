@@ -24,6 +24,14 @@ public class DetermineLargestWord {
 
         // Implement here
 
+        String[] numOfWords = wordGiven.split(" ");
+
+        for (int i = 0; i < numOfWords.length; i++) {
+            if (numOfWords[i].length() > st.length()) {
+                st = numOfWords[i];
+            }
+        }
+
         return map;
     }
 }
