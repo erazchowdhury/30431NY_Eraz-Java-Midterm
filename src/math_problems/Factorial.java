@@ -12,7 +12,34 @@ public class Factorial {
 
     public static void main(String[] args) {
 
+        System.out.println(getFactorialRecursion(5));
+        System.out.println(getFactorialIteration(6));
 
     }
+
+    public static int getFactorialRecursion (int num) {
+
+        if(num >= 1) {
+            return num * getFactorialRecursion(num - 1);
+        } else {
+            return 1;
+        }
+
+    }
+
+    public static int getFactorialIteration (int num) {
+
+        int factorial = 1;
+        if (num > 1) {
+            for (int i = 1; i <= num; i++){
+                factorial *= i;
+            }
+            return factorial;
+        } else {
+            return factorial;
+        }
+
+    }
+
 
 }

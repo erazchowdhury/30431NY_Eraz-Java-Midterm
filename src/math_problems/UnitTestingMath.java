@@ -8,6 +8,8 @@ public class UnitTestingMath {
 
     public static void main(String[] args) {
 
+        System.out.println(Factorial.getFactorialRecursion(5));
+        System.out.println(Factorial.getFactorialIteration(6));
 
     }
 }
