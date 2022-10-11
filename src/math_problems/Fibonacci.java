@@ -12,7 +12,7 @@ public class Fibonacci {
 
     public static void main(String[] args) {
 
-        System.out.println(getFibonacci(10));
+        System.out.println(getFibonacci(40));
 
     }
 
