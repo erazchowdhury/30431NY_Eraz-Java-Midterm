@@ -12,5 +12,8 @@ public class UnitTestingStringProblem {
 
         System.out.println(DetermineLargestWord.findTheLargestWord("Human brain is a biological learning machine"));
 
+        DuplicateWord.numOfDuplicatesAndWordLength("Java is a programming Language. Java is also an Island of " +
+                "Indonesia. Java is widely used language");
+
     }
 }
