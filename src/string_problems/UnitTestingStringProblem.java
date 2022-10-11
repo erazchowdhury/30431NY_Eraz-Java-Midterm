@@ -15,5 +15,7 @@ public class UnitTestingStringProblem {
         DuplicateWord.numOfDuplicatesAndWordLength("Java is a programming Language. Java is also an Island of " +
                 "Indonesia. Java is widely used language");
 
+        System.out.println(Palindrome.isPalindrome("MOM"));
+
     }
 }
