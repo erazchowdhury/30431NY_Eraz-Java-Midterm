@@ -44,6 +44,18 @@ public class SortingAlgorithms {
         final long startTime = System.currentTimeMillis();
         // IMPLEMENT HERE
 
+        int length = array.length;
+        for (int i = 1; i < length; ++i) {
+            int numBeingCompared = array[i];
+            int j = i - 1;
+
+            while (j >= 0 && array[j] > numBeingCompared) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = numBeingCompared;
+        }
+
         final long endTime = System.currentTimeMillis();
         this.executionTime = endTime - startTime;
 

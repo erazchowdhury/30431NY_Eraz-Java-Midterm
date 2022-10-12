@@ -20,19 +20,16 @@ public class FindLowestDifference {
 
     public static int lowestUncommon(int[] array1, int[] array2) {
 
-        int a1 = array1.length;
-        int a2 = array2.length;
-
         Arrays.sort(array1);
         Arrays.sort(array2);
 
-        List<Integer> list1 = new ArrayList<>(a1);
+        List<Integer> list1 = new ArrayList<>();
         for (int i : array1)
         {
             list1.add(i);
         }
 
-        List<Integer> list2 = new ArrayList<>(a2);
+        List<Integer> list2 = new ArrayList<>();
         for (int i : array2)
         {
             list2.add(i);

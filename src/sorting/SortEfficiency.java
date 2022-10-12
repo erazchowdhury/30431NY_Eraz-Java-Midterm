@@ -53,11 +53,11 @@ public class SortEfficiency {
         randomize(numberArray);
 
         // region Insertion Sort
-        numberArray = sort.insertionSort(numberArray);
-        long insertionSortExecutionTime = sort.executionTime;
-
-        System.out.println("Total Execution Time of " + numberArray.length + " numbers in Insertion Sort took: "
-                + insertionSortExecutionTime + " milliseconds");
+//        numberArray = sort.insertionSort(numberArray);
+//        long insertionSortExecutionTime = sort.executionTime;
+//
+//        System.out.println("Total Execution Time of " + numberArray.length + " numbers in Insertion Sort took: "
+//                + insertionSortExecutionTime + " milliseconds");
 
         // endregion
 
