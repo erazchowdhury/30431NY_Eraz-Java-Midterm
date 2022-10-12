@@ -1,8 +1,6 @@
 package math_problems;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 public class FindLowestDifference {
 
@@ -16,20 +14,40 @@ public class FindLowestDifference {
         int[] array1 = {30, 12, 5, 9, 2, 20, 33, 1, -15};
         int[] array2 = {18, 25, 41, 47, 17, 36, 14, 19, -15};
 
-//        lowestNotShared(array1, array2);
+        System.out.println(lowestUncommon(array1, array2));
 
     }
 
-//    public static void lowestNotShared (int[] array1, int[] array2) {
-//
-//        int a1 = array1.length;
-//        int a2 = array2.length;
-//        int a3 = a1 + a2;
-//
-//        ArrayList<Integer> array3 = new ArrayList<>();
-//
-//
-//
-//    }
+    public static int lowestUncommon(int[] array1, int[] array2) {
+
+        int a1 = array1.length;
+        int a2 = array2.length;
+
+        Arrays.sort(array1);
+        Arrays.sort(array2);
+
+        List<Integer> list1 = new ArrayList<>(a1);
+        for (int i : array1)
+        {
+            list1.add(i);
+        }
+
+        List<Integer> list2 = new ArrayList<>(a2);
+        for (int i : array2)
+        {
+            list2.add(i);
+        }
+
+        List<Integer> union = new ArrayList<>(list1);
+        union.addAll(list2);
+
+        List<Integer> intersection = new ArrayList<>(list1);
+        intersection.retainAll(list2);
+
+        union.removeAll(intersection);
+
+        return union.get(0);
+
+    }
 
 }
