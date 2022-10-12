@@ -44,11 +44,11 @@ public class SortingAlgorithms {
         final long endTime = System.currentTimeMillis();
         this.executionTime = endTime - startTime;
 
-        List<Object> selectionSortingList = new ArrayList<>();
-        for (int i : array)
-        {
-            selectionSortingList.add(i);
-        }
+//        List<Object> selectionSortingList = new ArrayList<>();
+//        for (int i : array)
+//        {
+//            selectionSortingList.add(i);
+//        }
 
 //        ssdb.insertList("selection_sort", "selection_sort_values", selectionSortingList);
 
@@ -79,6 +79,15 @@ public class SortingAlgorithms {
 
     public int[] bubbleSort(int[] array) {
         // IMPLEMENT HERE
+
+        int n = array.length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
 
         return array;
     }
