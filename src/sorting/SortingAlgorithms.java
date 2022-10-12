@@ -1,5 +1,10 @@
 package sorting;
 
+import databases.SharedStepsDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class SortingAlgorithms {
 
 
@@ -19,6 +24,8 @@ public class SortingAlgorithms {
         }
     }
 
+    SharedStepsDatabase ssdb = new SharedStepsDatabase();
+
     public int[] selectionSort(int[] array) {
         final long startTime = System.currentTimeMillis();
 
@@ -36,6 +43,14 @@ public class SortingAlgorithms {
 
         final long endTime = System.currentTimeMillis();
         this.executionTime = endTime - startTime;
+
+        List<Object> selectionSortingList = new ArrayList<>();
+        for (int i : array)
+        {
+            selectionSortingList.add(i);
+        }
+
+//        ssdb.insertList("selection_sort", "selection_sort_values", selectionSortingList);
 
         return array;
     }

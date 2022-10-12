@@ -20,9 +20,14 @@ public class DuplicateWord {
 
         st = st.toLowerCase();
 
+        st = st.replace(".", "");
+        st = st.replace("?", "");
+        st = st.replace(",", "");
+
         String[] splitString = st.split(" ");
 
         int countOfWords = splitString.length;
+
 
         for (int i = 0; i < countOfWords; i++){
             for (int j = i + 1; j < countOfWords; j++) {
