@@ -1,5 +1,8 @@
 package data_structures;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UseArrayList {
 
     /** INSTRUCTIONS
@@ -11,6 +14,23 @@ public class UseArrayList {
      */
 
     public static void main(String[] args) {
+
+        List<Integer> data =  new ArrayList<>();
+
+        data.add(1);
+        data.add(2);
+        data.add(3);
+        data.add(4);
+        data.add(5);
+
+        System.out.println(data);
+
+        data.add(10);
+        System.out.println(data);
+        data.remove(5);
+        System.out.println(data);
+
+        System.out.println(data.get(0));
 
     }
 
