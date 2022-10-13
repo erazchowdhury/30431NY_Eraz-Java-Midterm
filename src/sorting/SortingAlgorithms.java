@@ -77,7 +77,7 @@ public class SortingAlgorithms {
         return array;
     }
 
-    private static void merge(int[] left_arr, int[] right_arr, int[] arr,int left_size, int right_size) {
+    private void merge(int[] left_arr, int[] right_arr, int[] arr,int left_size, int right_size) {
 
         int i=0,l=0,r = 0;
         //The while loops check the conditions for merging
@@ -132,14 +132,96 @@ public class SortingAlgorithms {
         return array;
     }
 
-    public int[] quickSort(int[] array) {
+    private int partition(int[] array, int begin, int end) {
+        int pivot = array[end];
+        int i = (begin-1);
+
+        for (int j = begin; j < end; j++) {
+            if (array[j] <= pivot) {
+                i++;
+
+                int swapTemp = array[i];
+                array[i] = array[j];
+                array[j] = swapTemp;
+            }
+        }
+
+        int swapTemp = array[i+1];
+        array[i+1] = array[end];
+        array[end] = swapTemp;
+
+        return i+1;
+    }
+
+    public int[] quickSort(int[] array, int low, int high) {
         // IMPLEMENT HERE
+
+        if (low < high) {
+
+            // find pivot element such that
+            // elements smaller than pivot are on the left
+            // elements greater than pivot are on the right
+            int pi = partition(array, low, high);
+
+            // recursive call on the left of pivot
+            quickSort(array, low, pi - 1);
+
+            // recursive call on the right of pivot
+            quickSort(array, pi + 1, high);
+        }
 
         return array;
     }
 
+    // To heapify a subtree rooted with node i which is
+    // an index in arr[]. n is size of heap
+    private void heapify(int[] arr, int n, int i) {
+        int largest = i;  // Initialize largest as root
+        int l = 2 * i + 1;  // left = 2*i + 1
+        int r = 2 * i + 2;  // right = 2*i + 2
+
+        // If left child is larger than root
+        if (l < n && arr[l] > arr[largest]) {
+            largest = l;
+        }
+
+        // If right child is larger than largest so far
+        if (r < n && arr[r] > arr[largest]) {
+            largest = r;
+        }
+
+        // If largest is not root
+        if (largest != i) {
+            int swap = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = swap;
+
+            // Recursively heapify the affected sub-tree
+            heapify(arr, n, largest);
+        }
+    }
+
     public int[] heapSort(int[] array) {
         // IMPLEMENT HERE
+
+        int n = array.length;
+
+        // Build heap (rearrange array)
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(array, n, i);
+        }
+
+        // One by one extract an element from heap
+        for (int i=n-1; i>=0; i--)
+        {
+            // Move current root to end
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+
+            // call max heapify on the reduced heap
+            heapify(array, i, 0);
+        }
 
         return array;
     }
