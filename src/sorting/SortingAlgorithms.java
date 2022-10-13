@@ -1,5 +1,9 @@
 package sorting;
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
 public class SortingAlgorithms {
 
 
@@ -226,14 +230,78 @@ public class SortingAlgorithms {
         return array;
     }
 
-    public int[] bucketSort(int[] array) {
-        //implement here
+    private static int hash(int num, int bucketSize)
+    {
+        return num/bucketSize;
+    }
 
+    public int[] bucketSort(int[] array, int bktSize) {
+        //implement here
+        if( bktSize <= 3) {
+            return array;
+        }
+
+        List<Integer>[] buckets = new List[bktSize];
+// Linked list with each bucket array index
+// as there may be hash collision
+        for(int i = 0; i < bktSize; i++)
+        {
+            buckets[i] = new LinkedList<>();
+        }
+//calculate the hash and assigns elements to the proper bucket
+        for(int num : array)
+        {
+            buckets[hash(num, bktSize)].add(num);
+        }
+//iterate over the buckets and sorts the elements
+        for(List<Integer> bucket : buckets)
+        {
+//sorts the bucket
+            Collections.sort(bucket);
+        }
+        int index = 0;
+//gathered the buckets after sorting
+        for(List<Integer> bucket : buckets)
+        {
+            for(int num : bucket)
+            {
+                array[index++] = num;
+            }
+        }
         return array;
     }
 
+
     public int[] shellSort(int[] array) {
         //implement here
+
+        int n = array.length;
+
+        // Start with a big gap, then reduce the gap
+        for (int gap = n/2; gap > 0; gap /= 2)
+        {
+            // Do a gapped insertion sort for this gap size.
+            // The first gap elements a[0..gap-1] are already
+            // in gapped order keep adding one more element
+            // until the entire array is gap sorted
+            for (int i = gap; i < n; i += 1)
+            {
+                // add a[i] to the elements that have been gap
+                // sorted save a[i] in temp and make a hole at
+                // position i
+                int temp = array[i];
+
+                // shift earlier gap-sorted elements up until
+                // the correct location for a[i] is found
+                int j;
+                for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
+                    array[j] = array[j - gap];
+
+                // put temp (the original a[i]) in its correct
+                // location
+                array[j] = temp;
+            }
+        }
 
         return array;
     }
