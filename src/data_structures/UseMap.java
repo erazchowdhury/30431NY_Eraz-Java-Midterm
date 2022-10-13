@@ -36,5 +36,10 @@ public class UseMap {
 
         // IMPLEMENT HERE
 
+        sql.insertMap(tableName, map);
+
+//        String query = "SELECT * TEST_HASH_MAP";
+//        List<String> retrievedArrayList = sql.executeQueryReadAllSingleColumn(query, "value");
+
     }
 }
