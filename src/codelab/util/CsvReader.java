@@ -88,7 +88,7 @@ public class CsvReader {
 //        int total = 0;
 //        int count = 0;
 //
-//        for (Student student : roster) {
+//        for (int i = 0; i < roster.size(); i++) {
 //
 //            total += student.getNumberOfExercisesSolved();
 //            count++;

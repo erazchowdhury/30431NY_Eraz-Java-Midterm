@@ -21,6 +21,9 @@ public class CollectionView {
         map.put(1, "NYC");
         map.put(3, "Denver");
 
+        System.out.println(map.keySet());
+        System.out.println(map.values());
+
     }
 
 }
