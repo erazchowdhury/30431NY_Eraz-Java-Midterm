@@ -48,6 +48,21 @@ public class CsvReader {
         for (Student student : roster) {
             System.out.println(convertNumberOfProblemsSolved(student));
         }
+
+        int total = 0;
+        int count = 0;
+
+        for (Student student : roster) {
+
+            total += student.getNumberOfExercisesSolved();
+            count++;
+
+        }
+
+        int avg = total / count;
+
+        System.out.println("The average score of the class is: " + avg);
+
     }
 
     private static String convertNumberOfProblemsSolved(Student student) {
@@ -67,4 +82,21 @@ public class CsvReader {
             return "Very low effort. Not a good sign, " + name;
         }
     }
+
+//    private static void getAvgScore (Student student, List<Student> roster) {
+//
+//        int total = 0;
+//        int count = 0;
+//
+//        for (Student student : roster) {
+//
+//            total += student.getNumberOfExercisesSolved();
+//            count++;
+//
+//        }
+//
+//        System.out.println(total / count);
+//
+//    }
+
 }
