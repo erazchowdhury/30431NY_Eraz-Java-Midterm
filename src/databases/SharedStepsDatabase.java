@@ -271,6 +271,33 @@ public class SharedStepsDatabase {
         }
     }
 
+    /**
+     * Inserts a queue to a database table in a specified column
+     *
+     * @param tableName Name of the table
+     * @param columnName Name of the column
+     * @param queue The queue to be inserted
+     */
+    public void insertQueue(String tableName, String columnName, Queue<Object> queue) {
+        dropTable(tableName);
+        boolean isNumericalData = false;
+
+        if (queue.peek() instanceof Integer) {
+            isNumericalData = true;
+        }
+        createTableSingleColumn(tableName, columnName, isNumericalData);
+
+        try {
+            for (Object obj : queue) {
+                ps = connect.prepareStatement("INSERT INTO " + tableName + " ( " + columnName + " ) VALUES(?)");
+                ps.setObject(1, obj);
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     private void dropTable(String tableName) {
         try {
             ps = connect.prepareStatement("DROP TABLE IF EXISTS `" + tableName + "`;");

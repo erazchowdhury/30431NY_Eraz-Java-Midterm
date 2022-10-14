@@ -42,6 +42,8 @@ public class UseQueue {
 
         System.out.println(myQueue.poll());
 
+        System.out.println();
+
         for (Object i: myQueue) {
             System.out.println(i);
         }
@@ -52,6 +54,26 @@ public class UseQueue {
 
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
+        }
+
+        SharedStepsDatabase ssdb = new SharedStepsDatabase();
+
+        ssdb.insertQueue("queue", "queue_values", myQueue);
+
+        String query = "SELECT * FROM QUEUE";
+        List<String> retrievedQueueAsAList = ssdb.executeQueryReadAllSingleColumn(query, "queue_values");
+
+
+        for (Object i: retrievedQueueAsAList) {
+            System.out.println(i);
+        }
+
+        System.out.println();
+
+        Iterator<String> newIterator = retrievedQueueAsAList.iterator();
+
+        while (newIterator.hasNext()) {
+            System.out.println(newIterator.next());
         }
 
 
