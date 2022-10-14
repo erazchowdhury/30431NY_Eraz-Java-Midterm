@@ -1,5 +1,13 @@
 package data_structures;
 
+import databases.SharedStepsDatabase;
+
+import java.sql.SQLException;
+import java.util.ArrayDeque;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Queue;
+
 public class UseQueue {
 
     /** INSTRUCTIONS
@@ -11,7 +19,41 @@ public class UseQueue {
      */
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+
+        Queue<Object> myQueue = new ArrayDeque<>();
+
+        myQueue.add(1);
+        myQueue.add(1);
+        myQueue.add(1);
+        myQueue.add(2);
+        myQueue.add(3);
+        myQueue.add(4);
+        myQueue.add(5);
+        myQueue.add(5);
+
+        System.out.println(myQueue.peek());
+
+        myQueue.remove();
+        System.out.println(myQueue);
+
+        myQueue.remove(5);
+        System.out.println(myQueue);
+
+        System.out.println(myQueue.poll());
+
+        for (Object i: myQueue) {
+            System.out.println(i);
+        }
+
+        System.out.println();
+
+        Iterator<Object> iterator = myQueue.iterator();
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
 
     }
 
