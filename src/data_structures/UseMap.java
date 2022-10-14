@@ -38,8 +38,18 @@ public class UseMap {
 
         sql.insertMap(tableName, map);
 
-//        String query = "SELECT * TEST_HASH_MAP";
-//        List<String> retrievedArrayList = sql.executeQueryReadAllSingleColumn(query, "value");
+        String query = "SELECT * FROM TEST_HASH_MAP";
+        List<List<String>> retrievedArrayList = sql.executeQueryReadAll(query);
+
+        for (Object i: retrievedArrayList) {
+            System.out.println(i);
+        }
+
+        Iterator<List<String>> iterator = retrievedArrayList.iterator();
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
 
     }
 }

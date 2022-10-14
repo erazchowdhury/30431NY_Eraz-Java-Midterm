@@ -53,7 +53,7 @@ public class UseArrayList {
 
         ssdb.insertList("array_list", "array_list_values", data);
 
-                String query = "SELECT * FROM ARRAY_LIST";
+        String query = "SELECT * FROM ARRAY_LIST";
         List<String> retrievedArrayList = ssdb.executeQueryReadAllSingleColumn(query, "array_list_values");
 
         System.out.println(retrievedArrayList);
