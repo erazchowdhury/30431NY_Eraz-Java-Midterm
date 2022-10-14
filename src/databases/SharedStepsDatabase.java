@@ -298,6 +298,33 @@ public class SharedStepsDatabase {
         }
     }
 
+//    /**
+//     * Inserts a list of NewsData to a database table in a specified column
+//     *
+//     * @param tableName Name of the table
+//     * @param columnName Name of the column
+//     * @param list The list of NewsData to be inserted
+//     */
+//    public void insertNewsDataList(String tableName, String columnName, List<json.CnnAPI.NewsData> list) {
+//        dropTable(tableName);
+//        boolean isNumericalData = false;
+//
+//        if (list.get(0) instanceof json.CnnAPI.NewsData) {
+//            isNumericalData = true;
+//        }
+//        createTableSingleColumn(tableName, columnName, isNumericalData);
+//
+//        try {
+//            for (Object obj : list) {
+//                ps = connect.prepareStatement("INSERT INTO " + tableName + " ( " + columnName + " ) VALUES(?)");
+//                ps.setObject(1, obj);
+//                ps.executeUpdate();
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
+
     private void dropTable(String tableName) {
         try {
             ps = connect.prepareStatement("DROP TABLE IF EXISTS `" + tableName + "`;");

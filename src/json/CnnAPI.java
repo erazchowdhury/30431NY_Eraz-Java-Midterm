@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import databases.SharedStepsDatabase;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -113,6 +114,10 @@ public class CnnAPI {
                         "\nDESCRIPTION: " + headline.description + "\nURL: " + headline.url + "\nURL TO IMAGE: " +
                         headline.urlToImage + "\nPUBLISHED AT: " + headline.publishedAt + "\nCONTENT: " + headline.content + "\n");
 
+//                SharedStepsDatabase ssdb = new SharedStepsDatabase();
+//
+//                ssdb.insertNewsDataList("news_headlines", "news_headlines_values", newsDataList);
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -120,7 +125,7 @@ public class CnnAPI {
     }
 
     // Inner Class
-    private static class NewsData {
+    public static class NewsData {
 
         String source;
         String author;
