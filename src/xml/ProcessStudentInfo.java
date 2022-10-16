@@ -1,10 +1,8 @@
 package xml;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -55,10 +53,12 @@ public class ProcessStudentInfo {
 
         // To get you started, your system's abs path has been initialized and some add'l variables have been declared
         String systemPath = System.getProperty("user.dir");
-        String seleniumDocRelativePath;
-        String qtpDocRelativePath;
-        String seleniumDocPath;
-        String qtpDocPath;
+        String seleniumDocRelativePath = File.separator + "src" + File.separator + "xml" + File.separator + "data"
+                + File.separator + "selenium.xml";
+        String qtpDocRelativePath = File.separator + "src" + File.separator + "xml" + File.separator + "data"
+                + File.separator + "qtp.xml";
+        String seleniumDocPath = systemPath + seleniumDocRelativePath;
+        String qtpDocPath = systemPath + qtpDocRelativePath;
         String tag = "id";
 
         /*
@@ -68,6 +68,25 @@ public class ProcessStudentInfo {
         Map<String, List<Student>> studentMap = new LinkedHashMap<String, List<Student>>();
 
         // Implement the rest below, as per the instructions
+
+        XmlReader xmlReader = new XmlReader();
+
+        List<Student> seleniumList = xmlReader.parseData(tag,seleniumDocPath);
+
+        List<Student> qtpList = xmlReader.parseData(tag,qtpDocPath);
+
+        studentMap.put("selenium", seleniumList);
+        studentMap.put("qtp", qtpList);
+
+//        Student student = new Student();
+//
+//        Iterator<List<Student>> iterator = studentMap.values().iterator();
+//        while (iterator.hasNext()) {
+//            System.out.println("Student ID: " + student.getId());
+//            System.out.println("First Name: " + student.getFirstName());
+//            System.out.println("Last Name:  " + student.getLastName());
+//            System.out.println("GRADE:     " + xmlReader.convertIntToChar(student.getScore()));
+//        }
 
     }
 }

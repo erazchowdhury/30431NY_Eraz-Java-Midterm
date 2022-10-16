@@ -232,7 +232,9 @@ public class SortingAlgorithms {
 
     private static int hash(int num, int bucketSize)
     {
+
         return num/bucketSize;
+
     }
 
     public int[] bucketSort(int[] array, int bktSize) {
