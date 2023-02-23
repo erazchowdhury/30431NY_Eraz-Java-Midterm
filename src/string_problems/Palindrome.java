@@ -12,7 +12,7 @@ public class Palindrome {
 
     public static void main(String[] args) {
 
-        System.out.println(isPalindrome("racecar"));
+        System.out.println(isPalindrome("AADaa"));
 
     }
     // Implement here
@@ -21,7 +21,7 @@ public class Palindrome {
 
         boolean isPalindrome = false;
 
-        str.toLowerCase();
+        str = str.toLowerCase();
 
         char[] charArray = str.toCharArray();
         int stringLength = charArray.length;

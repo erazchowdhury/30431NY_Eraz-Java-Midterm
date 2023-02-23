@@ -18,7 +18,7 @@ public class Pattern {
 
     public static void usePattern() {
 
-        for (int i = 100; i >= 1; i--) {
+        for (int i = 100; i > 0; i--) {
 
             if (i < 90) {
                 i--;

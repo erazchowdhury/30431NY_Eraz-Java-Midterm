@@ -13,7 +13,7 @@ public class Permutation {
 
     public static void main(String[] args) {
 
-        System.out.println(getPermutation("cd"));
+        System.out.println(getPermutation("ABC"));
 
     }
     // Implement Here

@@ -1,5 +1,7 @@
 package math_problems;
 
+import java.util.ArrayList;
+
 public class PrimeNumber {
 
     /** INSTRUCTIONS
@@ -12,28 +14,55 @@ public class PrimeNumber {
 
     public static void main(String[] args) {
 
-        printPrimeNumbers(2, 1_000_000);
+//        printPrimeNumbers(2, 1_000_000);
+        printFirstTenPrimeNumbers();
 
     }
 
-    public static void printPrimeNumbers (int start, int end) {
+    public static void printPrimeNumbers (int startOfRange, int endOfRange) {
 
-        int counter;
+        int count;
 
-        for (int i = start; i <= end; i++) {
-            counter = 0;
+        for (int i = startOfRange; i <= endOfRange; i++) {
+            count = 0;
 
-            for (int j = start + 1; j <= i / 2; j++) {
+            for (int j = startOfRange; j <= i / 2; j++) {
                 if (i % j == 0) {
-                    counter++;
+                    count++;
                     break;
                 }
             }
 
-            if (counter == 0) {
+            if (count == 0) {
                 System.out.println(i);
             }
         }
+
+    }
+
+    public static void printFirstTenPrimeNumbers () {
+
+        int count;
+        ArrayList<Integer> primeNumbers = new ArrayList();
+
+        for (int i = 2; i <= 30; i++) {
+            count = 0;
+
+            for (int j = 2; j <= i / 2; j++) {
+                if (i % j == 0) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 0) {
+                primeNumbers.add(i);
+            }
+            if (primeNumbers.size() >= 10){
+                break;
+            }
+        }
+        System.out.println(primeNumbers);
 
     }
 

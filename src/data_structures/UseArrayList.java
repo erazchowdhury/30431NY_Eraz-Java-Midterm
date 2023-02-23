@@ -56,7 +56,9 @@ public class UseArrayList {
         String query = "SELECT * FROM ARRAY_LIST";
         List<String> retrievedArrayList = ssdb.executeQueryReadAllSingleColumn(query, "array_list_values");
 
-        System.out.println(retrievedArrayList);
+        for (String value : retrievedArrayList) {
+            System.out.println(value);
+        }
 
     }
 
